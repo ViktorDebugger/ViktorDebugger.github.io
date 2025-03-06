@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/output.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <title>Food Delivery | Меню</title>
+  </head>
+  <body class="flex min-h-screen flex-col bg-red-500 px-4 font-oswald">
+    <header
+      class="mx-auto my-3 flex h-[65px] w-full max-w-[1490px] items-center justify-between rounded-lg bg-white px-8 py-4 shadow-2xl"
+    >
+      <div class="flex items-center text-[22px]">
+        <i class="fa-solid fa-utensils"></i>
+      </div>
+
+      <nav>
+        <ul class="hidden items-center gap-8 text-[20px] sm:flex lg:gap-16">
+          <li>
+            <a
+              href="/index.html"
+              class="rounded-lg px-8 py-2 transition duration-300 ease-in-out hover:bg-gray-200"
+              >Меню</a
+            >
+          </li>
+          <li>
+            <a
+              href="/basket.html"
+              class="rounded-lg px-8 py-2 transition duration-300 ease-in-out hover:bg-gray-200"
+              >Кошик</a
+            >
+          </li>
+          <li>
+            <a
+              href="/orders.html"
+              class="rounded-lg px-8 py-2 transition duration-300 ease-in-out hover:bg-gray-200"
+              >Мої замовлення</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <button id="open-sidebar" class="block text-[20px] sm:hidden">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </header>
+
+    <nav
+      id="sidebar"
+      class="fixed right-0 top-0 z-10 h-full w-full translate-x-full transform bg-white shadow-lg transition-transform duration-300"
+    >
+      <div class="flex items-start justify-between py-6 pl-4 pr-8 text-[22px] font-bold">
+        <ul class="flex w-[80%] flex-col gap-4">
+          <li>
+            <a
+              href="/index.html"
+              class="block rounded-lg border border-gray-400 p-4 hover:bg-gray-200"
+              >Меню</a
+            >
+          </li>
+          <li>
+            <a
+              href="/basket.html"
+              class="block rounded-lg border border-gray-400 p-4 hover:bg-gray-200"
+              >Кошик</a
+            >
+          </li>
+          <li>
+            <a
+              href="/orders.html"
+              class="block rounded-lg border border-gray-400 p-4 hover:bg-gray-200"
+              >Мої замовлення</a
+            >
+          </li>
+        </ul>
+        <button id="close-sidebar" class="block text-[22px] sm:hidden">
+          <i class="fa-solid fa-close"></i>
+        </button>
+      </div>
+    </nav>
+
+    <main class="mx-auto w-full max-w-[1490px] flex-1 rounded-lg py-4 text-center text-[20px]">
+      <section class="w-full rounded-lg bg-white py-2 text-[30px]">
+        <h1>Меню</h1>
+      </section>
+
+      <section
+        class="mt-4 flex max-w-[1490px] flex-col items-center justify-between gap-2 rounded-lg bg-white px-2 py-4 sm:flex-row 2xl:mx-auto"
+      >
+        <div class="relative w-[80%] sm:w-[35%]">
+          <select
+            class="w-full cursor-pointer rounded-lg bg-gray-200 px-4 py-3 transition duration-300 ease-in-out hover:bg-gray-300 focus:outline-none focus:ring-0"
+          >
+            <option value="">Всі категорії</option>
+            <option value="Піца">Піца</option>
+            <option value="Бургери">Бургери</option>
+            <option value="Суші">Суші</option>
+            <option value="Закуски">Закуски</option>
+            <option value="Напої">Напої</option>
+          </select>
+        </div>
+
+        <div class="flex w-[80%] justify-end gap-2 sm:w-[35%]">
+          <input
+            type="text"
+            id="dish-search"
+            placeholder="Пошук..."
+            class="w-full rounded-lg border-2 border-gray-300 px-4 py-2 text-gray-700 focus:border-gray-400 focus:outline-none"
+          />
+          <button
+            id="button-search"
+            class="h-[50px] w-[50px] rounded-lg bg-gray-300 p-2 transition duration-300 ease-in-out hover:bg-gray-400"
+          >
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </section>
+
+      <section id="dishes-info"></section>
+
+      <section id="pagination" class="mt-4 flex justify-center gap-2"></section>
+    </main>
+
+    <footer class="mx-auto my-3 w-full max-w-[1490px] rounded-lg bg-white px-8 py-4 shadow-2xl">
+      <div class="flex flex-col">
+        <div
+          class="flex flex-col items-center justify-between border-b border-gray-300 pb-2 text-[12px] text-gray-800 sm:flex-row sm:text-[14px] md:text-[18px]"
+        >
+          <span>+380 934 599 239</span>
+          <span>viktor.luka.oi.2023@lpnu.ua</span>
+          <span>Лука Віктор</span>
+        </div>
+        <div class="mt-[20px] flex flex-col-reverse items-center justify-between md:flex-row">
+          <p class="text-gray-500">© 2025 Food. Всі права захищені.</p>
+          <div class="flex gap-5 text-[22px]">
+            <button
+              class="flex h-[50px] w-[50px] items-center justify-center rounded-lg p-2 transition duration-300 ease-in-out hover:bg-gray-400"
+            >
+              <i class="fa-brands fa-instagram"></i>
+            </button>
+            <button
+              class="flex h-[50px] w-[50px] items-center justify-center rounded-lg p-2 transition duration-300 ease-in-out hover:bg-gray-400"
+            >
+              <i class="fa-brands fa-telegram"></i>
+            </button>
+            <button
+              class="flex h-[50px] w-[50px] items-center justify-center rounded-lg p-2 transition duration-300 ease-in-out hover:bg-gray-400"
+            >
+              <i class="fa-brands fa-tiktok"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="./assets/js/scripts/dishes.js"></script>
+    <script src="./assets/js/utils.js"></script>
+  </body>
+</html>
