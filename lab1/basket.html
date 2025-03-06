@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/output.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <title>Food Delivery | Кошик</title>
+  </head>
+  <body class="flex min-h-screen flex-col bg-yellow-500 px-4 font-oswald">
+    <header
+      class="my-3 flex h-[65px] max-w-[1490px] items-center justify-between rounded-lg bg-white px-8 py-4 shadow-2xl"
+    >
+      <div class="flex items-center text-[22px]">
+        <i class="fa-solid fa-utensils"></i>
+      </div>
+
+      <nav>
+        <ul class="hidden items-center gap-8 text-[20px] sm:flex lg:gap-16">
+          <li>
+            <a
+              href="/menu.html"
+              class="rounded-lg px-8 py-2 transition duration-300 ease-in-out hover:bg-gray-200"
+              >Меню</a
+            >
+          </li>
+          <li>
+            <a
+              href="/basket.html"
+              class="rounded-lg px-8 py-2 transition duration-300 ease-in-out hover:bg-gray-200"
+              >Кошик</a
+            >
+          </li>
+          <li>
+            <a
+              href="/orders.html"
+              class="rounded-lg px-8 py-2 transition duration-300 ease-in-out hover:bg-gray-200"
+              >Мої замовлення</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <button class="block text-[20px] sm:hidden">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </header>
+
+    <main class="max-w-[1490px] flex-1 rounded-lg py-4 text-center text-[30px]">
+      <section class="w-full rounded-lg bg-white py-2 text-[30px]">
+        <h1>Кошик</h1>
+      </section>
+
+      <section
+        class="mx-2 mt-4 max-w-[1490px] rounded-lg border-[4px] border-white p-4 2xl:mx-auto"
+      >
+        <article>
+          <ul class="col-span-1 grid grid-cols-1 gap-2">
+            <li
+              class="col-span-1 mx-auto grid w-full grid-cols-2 items-center rounded-lg bg-white px-8 py-4 sm:grid-cols-4"
+            >
+              <div class="col-span-1">
+                <img
+                  src="./assets/img/burger/bacon.png"
+                  alt="Бекон бургер"
+                  class="h-[65px] w-[75px] rounded-lg shadow-2xl md:w-[100px]"
+                />
+              </div>
+
+              <div class="col-span-1">
+                <h2
+                  class="w-24 truncate text-right text-[14px] md:w-48 md:text-left md:text-[20px] lg:text-[25px]"
+                >
+                  Бекон бургер
+                </h2>
+              </div>
+
+              <div class="col-span-1 text-left sm:text-center">
+                <p class="text-[22px] text-gray-500">$20.00</p>
+              </div>
+
+              <div
+                class="col-span-1 flex items-center justify-end gap-2 text-[14px] md:text-[20px]"
+              >
+                <span>Кількість</span>
+                <span class="h-[35px] w-[35px] rounded-lg bg-gray-300 p-2 text-center md:p-1"
+                  >0</span
+                >
+                <div class="flex flex-col gap-2">
+                  <button
+                    class="rounded-lg bg-gray-300 px-1 transition duration-300 ease-in-out hover:bg-gray-400"
+                  >
+                    <i class="fa-solid fa-angle-up"></i>
+                  </button>
+                  <button
+                    class="rounded-lg bg-gray-300 px-1 transition duration-300 ease-in-out hover:bg-gray-400"
+                  >
+                    <i class="fa-solid fa-x"></i>
+                  </button>
+                  <button
+                    class="rounded-lg bg-gray-300 px-1 transition duration-300 ease-in-out hover:bg-gray-400"
+                  >
+                    <i class="fa-solid fa-angle-down"></i>
+                  </button>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <footer
+            class="mx-auto mt-4 flex w-full max-w-[1490px] flex-col items-center justify-between gap-4 rounded-lg bg-white px-8 py-4 text-left text-[18px] md:flex-row lg:text-[25px]"
+          >
+            <div class="flex flex-col gap-8 sm:flex-row">
+              <div class="flex items-center gap-4">
+                <span>Загальний рахунок</span>
+                <span class="text-[20px] text-gray-500">$20.00</span>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <span>Загальна кількість</span>
+                <span class="h-[50px] w-[50px] rounded-lg bg-gray-300 p-2 text-center text-[22px]"
+                  >0</span
+                >
+              </div>
+            </div>
+            <button
+              class="rounded-lg border-[2px] border-black px-8 py-2 transition duration-300 ease-in-out hover:bg-black hover:text-white"
+            >
+              Замовити
+            </button>
+          </footer>
+        </article>
+      </section>
+    </main>
+
+    <footer class="my-3 max-w-[1490px] rounded-lg bg-white px-8 py-4 shadow-2xl">
+      <div class="flex flex-col">
+        <div
+          class="flex flex-col items-center justify-between border-b border-gray-300 pb-2 text-[12px] text-gray-800 sm:flex-row sm:text-[14px] md:text-[18px]"
+        >
+          <span>+380 934 599 239</span>
+          <span>viktor.luka.oi.2023@lpnu.ua</span>
+          <span>Лука Віктор</span>
+        </div>
+        <div class="mt-[20px] flex flex-col-reverse items-center justify-between md:flex-row">
+          <p class="text-gray-500">© 2025 Food. Всі права захищені.</p>
+          <div class="flex gap-5 text-[22px]">
+            <button
+              class="flex h-[50px] w-[50px] items-center justify-center rounded-lg p-2 transition duration-300 ease-in-out hover:bg-gray-400"
+            >
+              <i class="fa-brands fa-instagram"></i>
+            </button>
+            <button
+              class="flex h-[50px] w-[50px] items-center justify-center rounded-lg p-2 transition duration-300 ease-in-out hover:bg-gray-400"
+            >
+              <i class="fa-brands fa-telegram"></i>
+            </button>
+            <button
+              class="flex h-[50px] w-[50px] items-center justify-center rounded-lg p-2 transition duration-300 ease-in-out hover:bg-gray-400"
+            >
+              <i class="fa-brands fa-tiktok"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

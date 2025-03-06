@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/output.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <title>Food Delivery | Меню</title>
+  </head>
+  <body class="flex min-h-screen flex-col bg-red-500 px-4 font-oswald">
+    <header
+      class="my-3 flex h-[65px] max-w-[1490px] items-center justify-between rounded-lg bg-white px-8 py-4 shadow-2xl"
+    >
+      <div class="flex items-center text-[22px]">
+        <i class="fa-solid fa-utensils"></i>
+      </div>
+
+      <nav>
+        <ul class="hidden items-center gap-8 text-[20px] sm:flex lg:gap-16">
+          <li>
+            <a
+              href="/menu.html"
+              class="rounded-lg px-8 py-2 transition duration-300 ease-in-out hover:bg-gray-200"
+              >Меню</a
+            >
+          </li>
+          <li>
+            <a
+              href="/basket.html"
+              class="rounded-lg px-8 py-2 transition duration-300 ease-in-out hover:bg-gray-200"
+              >Кошик</a
+            >
+          </li>
+          <li>
+            <a
+              href="/orders.html"
+              class="rounded-lg px-8 py-2 transition duration-300 ease-in-out hover:bg-gray-200"
+              >Мої замовлення</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <button class="block text-[20px] sm:hidden">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </header>
+
+    <main class="max-w-[1490px] flex-1 rounded-lg py-4 text-center text-[20px]">
+      <section class="w-full rounded-lg bg-white py-2 text-[30px]">
+        <h1>Меню</h1>
+      </section>
+
+      <section
+        class="mx-2 mt-4 flex max-w-[1490px] flex-col items-center justify-between gap-2 rounded-lg bg-white px-8 py-4 sm:flex-row 2xl:mx-auto"
+      >
+        <div class="relative w-[80%] sm:w-[35%]">
+          <select
+            class="w-full cursor-pointer rounded-lg bg-gray-200 px-4 py-3 transition duration-300 ease-in-out hover:bg-gray-300 focus:outline-none focus:ring-0"
+          >
+            <option value="">Всі категорії</option>
+            <option value="#">Піца</option>
+            <option value="#">Бургери</option>
+            <option value="#">Суші</option>
+            <option value="#">Закуски</option>
+            <option value="#">Напої</option>
+          </select>
+        </div>
+
+        <div class="flex w-[80%] justify-center gap-2 sm:w-[35%]">
+          <input
+            type="text"
+            placeholder="Пошук..."
+            class="w-[70%] rounded-lg border-2 border-gray-300 px-4 py-2 text-gray-700 focus:border-gray-400 focus:outline-none"
+          />
+          <button
+            class="h-[50px] w-[50px] rounded-lg bg-gray-300 p-2 transition duration-300 ease-in-out hover:bg-gray-400"
+          >
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </section>
+
+      <section>
+        <ul
+          class="mx-2 mt-4 grid max-w-[1490px] grid-cols-1 gap-[18px] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:mx-auto"
+        >
+          <li class="col-span-1 mx-auto h-[500px] max-w-[350px] rounded-lg bg-white shadow-2xl">
+            <div class="mx-auto w-[80%]">
+              <img
+                src="./assets/img/pizza/diavola.png"
+                alt="Диявольська піца"
+                class="h-[200px] w-full rounded-lg shadow-2xl"
+              />
+            </div>
+
+            <div class="p-4">
+              <h2 class="text-[24px] font-bold">Диявольська піца</h2>
+              <p class="mt-4 text-[20px] text-gray-500">Категорія: Піца</p>
+              <div class="h-[120px]">
+                <p class="mt-3 text-[18px] text-gray-800 md:text-[20px]">
+                  Гостра піца з пепероні та сиром. Ідеально підходить для любителів гострих страв.
+                </p>
+              </div>
+
+              <button
+                class="w-full rounded-lg border-2 border-green-600 px-2 py-2 text-green-600 transition duration-300 ease-in-out hover:bg-green-600 hover:text-white"
+              >
+                Додати у кошик: $ 20.00
+              </button>
+            </div>
+          </li>
+
+          <li class="col-span-1 mx-auto h-[500px] max-w-[350px] rounded-lg bg-white shadow-2xl">
+            <div class="mx-auto w-[80%]">
+              <img
+                src="./assets/img/sushi/rainbow.png"
+                alt="Рейнбоу Рол"
+                class="h-[200px] w-full rounded-lg shadow-2xl"
+              />
+            </div>
+
+            <div class="p-4">
+              <h2 class="text-[24px] font-bold">Рейнбоу Рол</h2>
+              <p class="mt-4 text-[20px] text-gray-500">Категорія: Суші</p>
+              <div class="h-[120px]">
+                <p class="mt-3 text-[18px] text-gray-800 md:text-[20px]">
+                  Суші з різними видами риби, включаючи лосось, тунець та авокадо.
+                </p>
+              </div>
+
+              <button
+                class="w-full rounded-lg border-2 border-green-600 px-2 py-2 text-green-600 transition duration-300 ease-in-out hover:bg-green-600 hover:text-white"
+              >
+                Додати у кошик: $ 200.00
+              </button>
+            </div>
+          </li>
+
+          <li class="col-span-1 mx-auto h-[500px] max-w-[350px] rounded-lg bg-white shadow-2xl">
+            <div class="mx-auto w-[80%]">
+              <img
+                src="./assets/img/snack/buffalo-wings.png"
+                alt="Баффало Крила"
+                class="h-[200px] w-full rounded-lg shadow-2xl"
+              />
+            </div>
+
+            <div class="p-4">
+              <h2 class="text-[24px] font-bold">Баффало Крила</h2>
+              <p class="mt-4 text-[20px] text-gray-500">Категорія: Закуски</p>
+              <div class="h-[120px]">
+                <p class="mt-3 text-[18px] text-gray-800 md:text-[20px]">
+                  Гострі курячі крильця, обсмажені до хрусткої скоринки, подаються з соусом.
+                </p>
+              </div>
+
+              <button
+                class="w-full rounded-lg border-2 border-green-600 px-2 py-2 text-green-600 transition duration-300 ease-in-out hover:bg-green-600 hover:text-white"
+              >
+                Додати у кошик: $ 120.00
+              </button>
+            </div>
+          </li>
+
+          <li class="col-span-1 mx-auto h-[500px] max-w-[350px] rounded-lg bg-white shadow-2xl">
+            <div class="mx-auto w-[80%]">
+              <img
+                src="./assets/img/snack/chicken-nuggets.png"
+                alt="Курячі Нагетси"
+                class="h-[200px] w-full rounded-lg shadow-2xl"
+              />
+            </div>
+
+            <div class="p-4">
+              <h2 class="text-[24px] font-bold">Курячі Нагетси</h2>
+              <p class="mt-4 text-[20px] text-gray-500">Категорія: Закуски</p>
+              <div class="h-[120px]">
+                <p class="mt-3 text-[18px] text-gray-800 md:text-[20px]">
+                  Соковиті курячі нагетси, обсмажені до хрусткої скоринки.
+                </p>
+              </div>
+
+              <button
+                class="w-full rounded-lg border-2 border-green-600 px-2 py-2 text-green-600 transition duration-300 ease-in-out hover:bg-green-600 hover:text-white"
+              >
+                Додати у кошик: $ 100.00
+              </button>
+            </div>
+          </li>
+
+          <li class="col-span-1 mx-auto h-[500px] max-w-[350px] rounded-lg bg-white shadow-2xl">
+            <div class="mx-auto w-[80%]">
+              <img
+                src="./assets/img/pizza/meatlovers.png"
+                alt="Мітлаверс"
+                class="h-[200px] w-full rounded-lg shadow-2xl"
+              />
+            </div>
+
+            <div class="p-4">
+              <h2 class="text-[24px] font-bold">Мітлаверс</h2>
+              <p class="mt-4 text-[20px] text-gray-500">Категорія: Піца</p>
+              <div class="h-[120px]">
+                <p class="mt-3 text-[18px] text-gray-800 md:text-[20px]">
+                  Піца з різними видами м'яса, включаючи ковбасу, бекон та шинку, з сиром та
+                  томатним соусом.
+                </p>
+              </div>
+
+              <button
+                class="w-full rounded-lg border-2 border-green-600 px-2 py-2 text-green-600 transition duration-300 ease-in-out hover:bg-green-600 hover:text-white"
+              >
+                Додати у кошик: $ 250.00
+              </button>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="my-3 max-w-[1490px] rounded-lg bg-white px-8 py-4 shadow-2xl">
+      <div class="flex flex-col">
+        <div
+          class="flex flex-col items-center justify-between border-b border-gray-300 pb-2 text-[12px] text-gray-800 sm:flex-row sm:text-[14px] md:text-[18px]"
+        >
+          <span>+380 934 599 239</span>
+          <span>viktor.luka.oi.2023@lpnu.ua</span>
+          <span>Лука Віктор</span>
+        </div>
+        <div class="mt-[20px] flex flex-col-reverse items-center justify-between md:flex-row">
+          <p class="text-gray-500">© 2025 Food. Всі права захищені.</p>
+          <div class="flex gap-5 text-[22px]">
+            <button
+              class="flex h-[50px] w-[50px] items-center justify-center rounded-lg p-2 transition duration-300 ease-in-out hover:bg-gray-400"
+            >
+              <i class="fa-brands fa-instagram"></i>
+            </button>
+            <button
+              class="flex h-[50px] w-[50px] items-center justify-center rounded-lg p-2 transition duration-300 ease-in-out hover:bg-gray-400"
+            >
+              <i class="fa-brands fa-telegram"></i>
+            </button>
+            <button
+              class="flex h-[50px] w-[50px] items-center justify-center rounded-lg p-2 transition duration-300 ease-in-out hover:bg-gray-400"
+            >
+              <i class="fa-brands fa-tiktok"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
