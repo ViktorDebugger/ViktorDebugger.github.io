@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
       stringHtml = `<ul class="col-span-1 grid grid-cols-1 gap-2">`;
       for (let i = 0; i < basket.length; i++) {
         stringHtml += `<li
-                class="basket-item col-span-1 mx-auto grid w-full grid-cols-2 items-center rounded-lg bg-white px-8 py-4 sm:grid-cols-4"
+                class="basket-item col-span-1 mx-auto grid w-full grid-cols-2 items-center rounded-lg bg-white px-8 py-4 sm:grid-cols-5"
               >
                 <div class="col-span-1">
                   <img
@@ -59,6 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
   
                 <div class="col-span-1 text-left">
                   <p class="text-[22px] text-gray-500">$ ${basket[i].dish.price * basket[i].count}.00</p>
+                </div>
+
+                <div class="col-span-1 text-left">
+                  <p class="text-[22px] text-gray-500">$ ${basket[i].dish.price} x ${basket[i].count}</p>
                 </div>
   
                 <div
@@ -124,7 +128,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     basketList.innerHTML = stringHtml;
 
-    // Ініціалізація totalCount та totalPrice після вставки HTML
     totalCount = document.getElementById('total-count');
     totalPrice = document.getElementById('total-price');
     basketItems = document.querySelectorAll('.basket-item');
@@ -139,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
           orderStartDatetime: new Date(),
           totalPrice: basket.reduce((accum, cur) => accum + cur.dish.price * cur.count, 0),
           totalCount: basket.reduce((accum, cur) => accum + cur.count, 0),
-          orderEndDatetime: new Date(new Date().getTime() + 30 * 60000),
+          orderEndDatetime: new Date(new Date().getTime() + 30 * 200),
         });
         orders.sort((a, b) => new Date(b.orderStartDatetime) - new Date(a.orderStartDatetime));
         localStorage.setItem('orders', JSON.stringify(orders));
