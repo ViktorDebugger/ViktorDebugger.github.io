@@ -24,7 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (orders.length) {
     stringHtml += `<ul id="orders-info" class="grid grid-cols-1 gap-2">`;
-    orders.forEach((order, index) => {
+    let index = 0;
+    while (index < orders.length) {
+      const order = orders[index];
       const orderStart = new Date(order.orderStartDatetime);
       const orderEnd = new Date(order.orderEndDatetime);
 
@@ -43,7 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
               <ul class="mt-2 grid grid-cols-1 gap-2 rounded-t-lg bg-white">`;
 
       let orderItems = '';
-      order.items.forEach((item) => {
+      let itemIndex = 0;
+      while (itemIndex < order.items.length) {
+        const item = order.items[itemIndex];
         orderItems += `<li
                     class="mx-auto grid w-full grid-cols-2 items-center rounded-lg border-b-2 border-gray-300 bg-white px-8 py-4 sm:grid-cols-4"
                   >
@@ -73,7 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
                       >
                     </div>
                   </li>`;
-      });
+        itemIndex++;
+      }
       orderItems += `</ul>`;
 
       stringHtml += orderItems;
@@ -94,7 +99,8 @@ document.addEventListener('DOMContentLoaded', () => {
               </footer>
             </article>
           </li>`;
-    });
+      index++;
+    }
     stringHtml += `</ul>`;
   } else {
     stringHtml += `
@@ -105,7 +111,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   ordersListHtml.innerHTML = stringHtml;
 
-  orders.forEach((order, index) => {
+  let timerIndex = 0;
+  while (timerIndex < orders.length) {
+    const order = orders[timerIndex];
     const orderEnd = new Date(order.orderEndDatetime);
 
     const updateTimer = () => {
@@ -117,10 +125,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const seconds = Math.floor(timeDiff % 60)
         .toString()
         .padStart(2, '0');
-      document.getElementById(`timer-${index}`).innerText = `${minutes}:${seconds}` !== '00:00' ? `${minutes}:${seconds}` : '';
+      document.getElementById(`timer-${timerIndex}`).innerText =
+        `${minutes}:${seconds}` !== '00:00' ? `${minutes}:${seconds}` : '';
     };
 
     updateTimer();
     setInterval(updateTimer, 1000);
-  });
+    timerIndex++;
+  }
 });
