@@ -125,8 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const seconds = Math.floor(timeDiff % 60)
         .toString()
         .padStart(2, '0');
-      document.getElementById(`timer-${timerIndex}`).innerText =
-        `${minutes}:${seconds}` !== '00:00' ? `${minutes}:${seconds}` : '';
+      document.getElementById(`timer-${timerIndex}`).innerText =`${minutes}:${seconds}` !== '00:00' ? `${minutes}:${seconds}` : '';
     };
 
     updateTimer();
