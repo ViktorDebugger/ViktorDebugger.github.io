@@ -24,18 +24,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (orders.length) {
     stringHtml += `<ul id="orders-info" class="grid grid-cols-1 gap-2">`;
-    orders.forEach((order, index) => {
+    let i = 0;
+    while (i < orders.length) {
+      const order = orders[i];
       const orderStart = new Date(order.orderStartDatetime);
       const orderEnd = new Date(order.orderEndDatetime);
 
-      stringHtml += `<li id="basket-item" class="col-span-1">
+      stringHtml += `<li id="order-${i}" class="col-span-1">
             <article class="rounded-lg border-[4px] border-white p-4">
               <header
                 class="flex flex-col items-center justify-between rounded-lg bg-white px-6 py-2 text-[20px] md:flex-row lg:text-[25px]"
               >
                 <h2 class="font-bold">Замовлення ${order.orderId}</h2>
                 <div class="flex gap-4 sm:gap-16">
-                  <time id="timer-${index}" class="text-[14px] text-gray-700 lg:text-[18px]"></time>
+                  <time id="timer-${i}" class="text-[14px] text-gray-700 lg:text-[18px]"></time>
                   <time class="text-[14px] text-gray-500 lg:text-[18px]">${formatDate(orderStart)}</time>
                 </div>
               </header>
@@ -43,7 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
               <ul class="mt-2 grid grid-cols-1 gap-2 rounded-t-lg bg-white">`;
 
       let orderItems = '';
-      order.items.forEach((item) => {
+      let j = 0;
+      while (j < order.items.length) {
+        const item = order.items[j];
         orderItems += `<li
                     class="mx-auto grid w-full grid-cols-2 items-center rounded-lg border-b-2 border-gray-300 bg-white px-8 py-4 sm:grid-cols-4"
                   >
@@ -73,7 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
                       >
                     </div>
                   </li>`;
-      });
+        j++;
+      }
       orderItems += `</ul>`;
 
       stringHtml += orderItems;
@@ -94,7 +99,8 @@ document.addEventListener('DOMContentLoaded', () => {
               </footer>
             </article>
           </li>`;
-    });
+      i++;
+    }
     stringHtml += `</ul>`;
   } else {
     stringHtml += `
@@ -105,15 +111,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   ordersListHtml.innerHTML = stringHtml;
 
-  const modalWindow = document.querySelector('#modal-window');
-  const closeOrder = document.querySelector('#close-order');
+  const body = document.querySelector('body');
+  const modal = `<div id="modal-window" class="fixed flex items-center justify-center bg-black bg-opacity-50 top-0 bottom-0 right-0 left-0">
+                  <div class="bg-white rounded-lg shadow-lg p-6 w-1/3">
+                    <h3 class="text-lg font-bold mb-4">Замовлення готове</h3>
+                    <button
+                      id="close-order"
+                      class="mt-4 w-full rounded-lg bg-blue-600 px-4 py-2.5 text-center text-white hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
+                    >
+                      Закрити
+                    </button>
+                  </div>
+                </div>`;
 
-  const basketItem = document.querySelector('#basket-item');
-
-  closeOrder.addEventListener('click', () => {
-    modalWindow.classList.remove('flex');
-    modalWindow.classList.add('hidden');
-  });
+  let closeOrder;
+  let intervalId;
+  let isModalOpen = false;
 
   orders.forEach((order, index) => {
     const orderEnd = new Date(order.orderEndDatetime);
@@ -127,25 +140,28 @@ document.addEventListener('DOMContentLoaded', () => {
       const seconds = Math.floor(timeDiff % 60)
         .toString()
         .padStart(2, '0');
-        let timeItem = document.getElementById(`timer-${index}`);
-        if (`${minutes}:${seconds}` !== '00:00') {
-          timeItem.innerText = `${minutes}:${seconds}`;
-        }
-        if (`${minutes}:${seconds}` === '00:00' && timeItem.innerText !== 'Готово') {
-          timeItem.innerText = '';
-        }
-        if (timeItem.innerText === '') {
-          modalWindow.classList.remove('hidden');
-          modalWindow.classList.add('flex');
-          timeItem.innerText = 'Готово';
-          basketItem.classList.add('hidden');
 
-        } 
+      let timeItem = document.getElementById(`timer-${index}`);
+
+      if (`${minutes}:${seconds}` !== '00:00') {
+        timeItem.innerText = `${minutes}:${seconds}`;
+      }
+      if (`${minutes}:${seconds}` === '00:00') {
+        body.innerHTML += modal;
+        orders.splice(index, 1);
+        localStorage.setItem('orders', JSON.stringify(orders));        
+        clearInterval(intervalId);
+        const modalWindow = document.getElementById('modal-window');
+        closeOrder = document.getElementById('close-order');
+        closeOrder.addEventListener('click', () => {
+          modalWindow.remove();
+          clearInterval(intervalId);
+          window.location.reload();
+        });
+      }
     };
 
     updateTimer();
-    setInterval(updateTimer, 1000);
+    intervalId = setInterval(updateTimer, 1000);
   });
-
-  
 });
